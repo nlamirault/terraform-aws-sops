@@ -12,18 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-data "aws_secretsmanager_secret" "oidc_url" {
-  name = format("%s_k8s_oidc_url", replace(var.cluster_name, "-", "_"))
+output "kms_arn" {
+  description = "Role ARN for KMS key"
+  value       = aws_kms_key.sops.arn
 }
 
-data "aws_secretsmanager_secret_version" "oidc_url" {
-  secret_id = data.aws_secretsmanager_secret.oidc_url.id
+output "role_arn_eks" {
+  description = "Role ARN for EKS"
+  value       = element(aws_iam_role.sops_eks.*.arn, 0)
 }
 
-data "aws_secretsmanager_secret" "oidc_arn" {
-  name = format("%s_k8s_oidc_arn", replace(var.cluster_name, "-", "_"))
-}
-
-data "aws_secretsmanager_secret_version" "oidc_arn" {
-  secret_id = data.aws_secretsmanager_secret.oidc_arn.id
+output "role_arn_users" {
+  description = "Role ARN for users"
+  value       = element(aws_iam_role.sops_users.*.arn, 0)
 }

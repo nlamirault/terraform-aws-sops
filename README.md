@@ -8,7 +8,7 @@
 module "sops" {
   source  = "nlamirault/sops/aws"
   version = "1.0.0"
-  
+
   project = var.project
 
   namespace       = var.namespace
@@ -38,6 +38,7 @@ user_name = "foo-prod-admin"
 
 ## Documentation
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ### Requirements
 
 | Name | Version |
@@ -88,3 +89,4 @@ No Modules.
 | kms\_arn | Role ARN for KMS key |
 | role\_arn\_eks | Role ARN for EKS |
 | role\_arn\_users | Role ARN for users |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

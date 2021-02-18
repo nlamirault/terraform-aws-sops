@@ -14,15 +14,15 @@
 
 output "kms_arn" {
   description = "Role ARN for KMS key"
-  value = aws_kms_key.sops.arn
+  value       = aws_kms_key.sops.arn
 }
 
 output "role_arn_eks" {
   description = "Role ARN for EKS"
-  value = element(aws_iam_role.sops_eks.*.arn, 0)
+  value       = element(aws_iam_role.sops_eks.*.arn, 0)
 }
 
 output "role_arn_users" {
   description = "Role ARN for users"
-  value = element(aws_iam_role.sops_users.*.arn, 0)
+  value       = element(aws_iam_role.sops_users.*.arn, 0)
 }

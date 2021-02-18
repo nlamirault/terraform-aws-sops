@@ -46,8 +46,3 @@ variable "tags" {
     "made-by" = "terraform"
   }
 }
-
-variable "user_name" {
-  type = string
-  description = "User name for assume role"
-}
